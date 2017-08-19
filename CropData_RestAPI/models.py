@@ -27,22 +27,22 @@ class Farm_Photos(models.Model):
 	Farm  = models.ForeignKey(Farms, on_delete = models.CASCADE, null = True)
 	Image = models.ImageField(upload_to = 'Farm_Photos')
 
-class HouseHold_audio(models.Model):
+class HouseHold_Audio(models.Model):
 	HouseHold = models.ForeignKey(HouseHolds, on_delete = models.CASCADE, null = True)
 	Audio = models.FileField(upload_to = 'HouseHold_audio')
 
-class Farm_audio(models.Model):
+class Farm_Audio(models.Model):
 	Farm  = models.ForeignKey(Farms, on_delete = models.CASCADE)
 	Audio = models.FileField(upload_to = 'Farm_audio')
 
-class HouseHold_members(models.Model):
+class HouseHold_Members(models.Model):
 	HouseHold = models.ForeignKey(HouseHolds, on_delete = models.CASCADE, null = True)
 	Name = models.CharField(null = True,blank = False,max_length = 50)
 	Relation = models.CharField(null = True,blank = False,max_length = 50)
 	Age = models.IntegerField(null = True,blank = False)
 
 class Well_Yield(models.Model):
-	Well = models.ForeignKey(Wells, on_delete = models.CASCADE)
+	Well = models.ForeignKey(Wells, on_delete = models.CASCADE,null=True)
 	Yield = models.FloatField(null = True,blank = False)
 	Time = models.DateTimeField(auto_now_add = True, blank = False)
 
